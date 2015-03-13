@@ -1,0 +1,16 @@
+Package: diggitdata
+Type: Package
+Title: Example data for the diggit package
+Version: 0.99.0
+Date: 2014-08-29
+Author: Mariano Javier Alvarez
+Maintainer: Mariano Javier Alvarez <reef103@gmail.com>
+Description: This package provides expression profile and CNV data for
+        glioblastoma from TCGA, and transcriptional and
+        post-translational regulatory networks assembled with the
+        ARACNe and MINDy algorithms, respectively.
+License: GPL (>=2)
+Depends: R(>= 2.14.0), Biobase, methods
+Imports: viper
+LazyLoad: yes
+biocViews: ExperimentData, Cancer

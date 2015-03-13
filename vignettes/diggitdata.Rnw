@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{hyperref}
+%\VignetteIndexEntry{Using bcellViper}
+
+\title{diggitdata, a data package required for the examples and vignette of the diggit package}
+\author{Mariano J. Alvarez, James Chen, Andrea Califano\\Department of Systems Biology, Columbia University, New York, USA}
+\date{\today}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\maketitle
+
+%-----------
+\section{Overview of diggitdata data package}\label{sec:overview}
+The \emph{diggitdata} data package provides some example datasets, including mRNA expression and copy number variation (CNV) profiles for human glioblastoma, CNV for normal blood samples, and two human glioma-context specific regulatory networks, including a transcriptional regulatory network assembled by the ARACNe algorithm\cite{Margolin2006} and a post-translational regulatory network reverse engineered by the MINDy algorithm\cite{Wang2009a}.
+
+\paragraph{Human glioblastoma mRNA expression dataset}
+The human glioblastoma dataset consists of 250 human glioblastoma samples profiled by The Cancer Genome Atlas (TCGA) on Affymetrix HT-HGU133A arrays. The raw data was was pre-processed by the cleaner algorithm \cite{Alvarez2009b} and then MAS5 normalized. The dataset is contained in an ExpressionSet object with 6,215 features (genes) x 250 samples.
+We can access this dataset with the following code:
+
+<<echo=TRUE, results=verbatim>>=
+library(diggitdata)
+data(gbm.expression)
+print(gbmExprs)
+@
+
+\paragraph{Human glioblastoma Copy Number Variation (CNV) dataset}
+The human glioblastoma CNV dataset contains 230 human glioblastoma samples profiled by TCGA on Agilent HG-CGH-244A arrays. The arrays data was summarized at the gene level and stored in a numerical matrix format, with genes in rows and samples in columns. To access this dataset we can use the code:
+
+<<echo=TRUE, results=verbatim>>=
+data(gbm.cnv)
+print(gbmCNV[1:3, 1:3])
+@
+
+\paragraph{Human blood CNV dataset}
+The human blood CNV dataset contains 33 normal human blood samples profiled by TCGA on Agilent HG-CGH-244A arrays. The arrays data was summarized at the gene level and stored in a numerical matrix format, with genes in rows and samples in columns. To access this dataset we can use the code:
+
+<<echo=TRUE, results=verbatim>>=
+data(gbm.cnv.normal)
+print(gbmCNVnormal[1:3, 1:3])
+@
+
+\paragraph{Human glioma context-specific transcriptional network}
+The human glioma transcriptional regulatory network (transcriptional interactome) represents 183,774 inferred regulatory interactions between 835 transcription factors and 8,365 target genes.
+It is contained in a \emph{regulon} class S3 object, and methods to access it are included in the \emph{viper} package, which is available from Bioconductor and it is imported by the diggitdata package.
+
+<<echo=TRUE, results=verbatim>>=
+data(gbm.aracne)
+print(gbmTFregulon)
+@
+
+\paragraph{Human glioma context-specific post-translational network for CEBPB, CEBPD and STAT3}
+The human glioma post-translational regulatory network (post-translational interactome) represents 43 inferred modulatory interactions between 38 signaling genes and the 3 considered transcription factors.
+It is contained in a \emph{regulon} class S3 object, and methods to access it are included in the \emph{viper} package, which is available from Bioconductor and it is imported by the diggitdata package.
+
+<<echo=TRUE, results=verbatim>>=
+data(gbm.mindy)
+print(gbmMindy)
+@
+
+%-----------
+\begin{thebibliography}{00}
+\bibitem{Alvarez2009b} Alvarez,M.J. et al. (2009) Correlating measurements across samples improves accuracy of large-scale expression profile experiments. Genome Biol., 10, R143.
+\bibitem{Margolin2006} Margolin,A.A. et al. (2006) ARACNE: an algorithm for the reconstruction of gene regulatory networks in a mammalian cellular context. BMC Bioinformatics, 7 Suppl 1, S7.
+\bibitem{Wang2009a} Wang,K. et al. (2009) Genome-wide identification of post-translational modulators of transcription factor activity in human B cells. Nat. Biotechnol., 27, 829-39.
+\end{thebibliography}
+%----------
+\end{document}
