@@ -1,7 +1,7 @@
 Package: diggitdata
 Type: Package
 Title: Example data for the diggit package
-Version: 1.17.0
+Version: 1.17.1
 Date: 2014-08-29
 Author: Mariano Javier Alvarez
 Maintainer: Mariano Javier Alvarez <reef103@gmail.com>
@@ -14,3 +14,4 @@ Depends: R(>= 2.14.0), Biobase, methods
 Imports: viper
 LazyLoad: yes
 biocViews: ExperimentData, Cancer
+PackageStatus: Deprecated
