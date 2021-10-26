@@ -1,7 +1,7 @@
 Package: diggitdata
 Type: Package
 Title: Example data for the diggit package
-Version: 1.25.0
+Version: 1.26.0
 Date: 2014-08-29
 Author: Mariano Javier Alvarez
 Maintainer: Mariano Javier Alvarez <reef103@gmail.com>
